@@ -1,3 +1,6 @@
+# PINXET 自行修改部分
+- 新增 pixnetUpdateImagepx branch 修改了專屬的 imagepx plugin
+
 # redactor-plugins
 All plugins are fully compatible* with Imperavi's Redactor v10 and do not require [Redactor by mod<b>more</b>](https://www.modmore.com/extras/redactor/)<sup>&copy;</sup>.
 
