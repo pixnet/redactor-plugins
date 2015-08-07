@@ -12,7 +12,8 @@ if (!RedactorPlugins) var RedactorPlugins = {};
             imageEdit: function()
             {
                 var that = this;
-                var _c = $('#redactor-modal-body > section').append(document.createElement('hr')).append($(document.createElement('div')).addClass('image-edit-dimensions')).find('.image-edit-dimensions');
+                // move hr tag
+                var _c = $('#redactor-modal-body > section').append($(document.createElement('div')).addClass('image-edit-dimensions')).find('.image-edit-dimensions');
                 
                 var _bgs = [
                     $('#redactor-modal').css('background'),
