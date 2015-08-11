@@ -83,17 +83,34 @@ if (!RedactorPlugins) var RedactorPlugins = {};
                         revert();
                     }
                 });
-                                
+
+                function getNumberFormStr (value) {
+                  var matchValue = value.match(/\d+/);
+                  if (matchValue) {
+                    return Number.parseInt(matchValue[0]);
+                  }
+                  return 0;
+                }
                 function handleChange(_checked) {
                     if(_imageW.val()) {
                         _img.width(_imageW.val());
                         _imageTouched = true;
+                        // set attr number
+                        var attrW = getNumberFormStr(_imageW.val());
+                        if (attrW > 0) {
+                          _img.attr({width: attrW});
+                        }
                     } else {
                         _img.width('');
                     }
                     if(_imageH.val()) {
                         _img.height(_imageH.val());
                         _imageTouched = true;
+                      // set attr number
+                      var attrH = getNumberFormStr(_imageH.val());
+                      if (attrH > 0) {
+                        _img.attr({height: attrH});
+                      }
                     } else {
                         _img.height('');
                     }
