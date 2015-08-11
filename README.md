@@ -1,5 +1,6 @@
 # PINXET 自行修改部分
-- 新增 pixnetUpdateImagepx branch 修改了專屬的 imagepx plugin
+- 修改了專屬的 imagepx plugin 樣式 （pixnetUpdateImagepx）
+- 當修改圖片 width/height 時，一併修改圖片的 width/height attribute （pixnetUpdateImagepx-0.0.1）
 
 # redactor-plugins
 All plugins are fully compatible* with Imperavi's Redactor v10 and do not require [Redactor by mod<b>more</b>](https://www.modmore.com/extras/redactor/)<sup>&copy;</sup>.
