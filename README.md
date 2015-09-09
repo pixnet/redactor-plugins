@@ -1,6 +1,7 @@
 # PINXET 自行修改部分
 - 修改了專屬的 imagepx plugin 樣式 （pixnetUpdateImagepx）
 - 當修改圖片 width/height 時，一併修改圖片的 width/height attribute （pixnet-0.0.3）
+- 修改圖片增加可修改圖片的 src input，並且放在 edit-image form 最上面（pixnet-0.0.4）
 
 # redactor-plugins
 All plugins are fully compatible* with Imperavi's Redactor v10 and do not require [Redactor by mod<b>more</b>](https://www.modmore.com/extras/redactor/)<sup>&copy;</sup>.
