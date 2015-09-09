@@ -24,8 +24,16 @@ if (!RedactorPlugins) var RedactorPlugins = {};
                 var _imageH =  $(document.createElement('input')).attr('type','text').attr('min','0').attr('maxlength','8').attr('pattern','\d+(px|%|)').attr('data-redactor-deminsion-axis','y').attr('name','redactor-imageEdit-image-height').attr('id','redactor-imageEdit-image-height');
                 var _preview = $(document.createElement('input')).attr('disabled','disabled').attr('type','checkbox').attr('id','redactor-imageEdit-image-preview');
                 var _previewLabel = $(document.createElement('label')).attr('for','redactor-imageEdit-image-preview').text(this.opts.curLang.previewDimensions || 'Preview Dimensions');
+                // create image src input
+                var _srcInput = $(document.createElement('input')).attr('type','text').attr('name','redactor-imageEdit-image-src').attr('id','redactor-imageEdit-image-src');
+                var _srcInputLabel = $(document.createElement('label')).attr('for','redactor-imageEdit-image-src').text(this.opts.curLang.imageLink || 'Image Link');
+
                 // input should prepend in label, <label><input>...</label>
                 _previewLabel.prepend(_preview);
+                // insert before editImage section
+                _srcInputLabel.append(_srcInput);
+                $('#redactor-modal-body > section').prepend($(document.createElement('div')).addClass('redactor-imageEdit-image-link').append(_srcInputLabel));
+
                 _c.append([
                     $(document.createElement('div')).addClass('option').addClass('redactor-imageEdit-image-width').append(
                         $(document.createElement('label')).attr('for','redactor-imageEdit-image-width').text(this.opts.curLang.width || 'Width'),
@@ -38,7 +46,7 @@ if (!RedactorPlugins) var RedactorPlugins = {};
 
                     $(document.createElement('div')).addClass('option').addClass('redactor-imageEdit-image-preview').append(_previewLabel)
                 ]);
-                
+
                 var _img = $('#redactor-image-box').children('img');
                 var _p = _img.parent();
                 var _imgO = _img.clone().css('opacity','');
@@ -46,6 +54,7 @@ if (!RedactorPlugins) var RedactorPlugins = {};
                 var _id = $('#image-edit-dimensions').addClass('scalable');
                 var _imageTouched, _listenersAdded = false;
                 var _imgStyle = _img.prop('style');
+                var _imgSrc = _img.attr('src');
 
                 if(_imgStyle) {
                   if (_imgStyle.width) {
@@ -55,8 +64,8 @@ if (!RedactorPlugins) var RedactorPlugins = {};
                     _imageH.val(_imgStyle.height);
                   }
                 }
-
-                $.each([_imageW,_imageH],function(index,value){
+                _srcInput.val(_imgSrc || '');
+                $.each([_imageW,_imageH,_srcInput],function(index,value){
                     $(this).on('change keyup',function(e){
                         if(_imageW.val() || _imageH.val()) {
                             _preview.removeAttr('disabled');
@@ -114,7 +123,11 @@ if (!RedactorPlugins) var RedactorPlugins = {};
                     } else {
                         _img.height('');
                     }
-                    
+
+                    if (_srcInput.val()) {
+                      _img.attr('src', _srcInput.val());
+                    }
+
                     if(_imageTouched && !_listenersAdded && $('.redactor-modal-close-btn')[0]) { // #janky
                         _listenersAdded = true;
                     }
