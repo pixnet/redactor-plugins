@@ -1,7 +1,7 @@
 {
   "name": "modmore-redactor-plugins",
   "description": "",
-  "version": "1.0.8",
+  "version": "pixnet-0.0.4,
   "license": "MIT",
   "ignore": [
       "node_modules",
