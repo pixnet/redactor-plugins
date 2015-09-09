@@ -1,3 +1,7 @@
+### PIXNET 修改部分
+對圖片 plugin 的自定調整，請一律到 pixnetUpdateImagepx branch 處理。
+並在此 branch 更新跟 tag (記得修改 branch 的 README.md)
+
 # redactor-plugins
 All plugins are fully compatible* with Imperavi's Redactor v10 and do not require [Redactor by mod<b>more</b>](https://www.modmore.com/extras/redactor/)<sup>&copy;</sup>.
 
