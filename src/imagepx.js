@@ -96,7 +96,7 @@ if (!RedactorPlugins) var RedactorPlugins = {};
                 function getNumberFormStr (value) {
                   var matchValue = value.match(/\d+/);
                   if (matchValue) {
-                    return Number.parseInt(matchValue[0]);
+                    return parseInt(matchValue[0]);
                   }
                   return 0;
                 }
